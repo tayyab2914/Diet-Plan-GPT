@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saved Diet Plans</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <header class="bg-gray-900 text-white py-4">
+        <div class="container mx-auto">
+            <nav class="flex justify-between items-center">
+                <div class="text-3xl font-extrabold">
+                    Diet Plans
+                </div>
+                <a href="{% url 'signout' %}" class="px-4 py-2 text-sm bg-red-600 text-white rounded-full hover:bg-red-700 hover:text-white">Logout</a>
+            </nav>
+        </div>
+    </header>
+    <main class="container mx-auto mt-10">
+        <div class="my-6">
+            <a href="{% url 'creatediet' %}" class="px-6 py-3 bg-blue-600 text-white text-lg rounded-full hover:bg-blue-700">Create Diet Plan</a>
+        </div>
+        <h1 class="text-4xl font-extrabold">Your Saved Diet Plans</h1>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+            {% for dietplan in  dietplans%}
+            <!-- Diet Plan Card 1 -->
+            <div class="bg-white rounded-lg shadow-lg p-4">
+                <h2 class="my-4 text-xl font-semibold">{{dietplan.name}}</h2>
+                <a href='dietplan/{{dietplan.slug}}' class="mt-4 bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700">View Details</a>
+            </div>
+            {% endfor %}
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block body %}
+<header class="bg-gray-900 text-white py-4">
+    <div class="container mx-auto flex justify-between items-center">
+        <div class="text-4xl font-extrabold cursor-pointer">
+            <a href="{% url 'index'%}">
+            Personalized Diet Plans</a>
+        </div>
+        <div>
+            <a href="{% url 'signin' %}" class="px-4 py-2 text-sm bg-transparent border border-white rounded-full hover:bg-white hover:text-black">Login</a>
+            <a href="{% url 'signup' %}" class="px-4 py-2 text-sm bg-white text-black rounded-full hover:bg-transparent hover:text-white">Sign Up</a>
+        </div>
+    </div>
+</header>
+<div class="bg-gray-100 flex justify-center items-center h-screen">
+    <div class="bg-white p-8 rounded-lg shadow-lg w-96">
+        <h1 class="text-2xl font-semibold mb-4">Login to Your Account</h1>
+        {%if messages%}
+          {% for message in messages %}
+          <p class="text-red-500 text-sm mt-1">{{message}}</p>
+          {% endfor %}
+          {% endif %}
+        <form action="signin" method="POST">
+            {% csrf_token %}
+            <div class="mb-4">
+                <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                <input type="email" id="email" name="email" class="w-full px-3 py-2 border rounded-lg text-gray-700">
+            </div>
+            <div class="mb-6">
+                <label for "password" class="block text-sm font-medium text-gray-700">Password</label>
+                <input type="password" id="password" name="password" class="w-full px-3 py-2 border rounded-lg text-gray-700">
+            </div>
+            <button type="submit" class="w-full bg-blue-600 text-white rounded-lg py-2 hover:bg-blue-700">Login</button>
+        </form>
+    </div>
+</div>
+{% endblock body %}

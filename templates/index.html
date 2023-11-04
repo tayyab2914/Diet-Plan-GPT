@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+
+{% block body %}
+<div class="bg-black text-white min-h-screen">
+    <header class="bg-gray-900 text-white py-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="text-4xl font-extrabold">
+                Personalized Diet Plans
+            </div>
+            <div>
+                <a href="{% url 'signin' %}" class="px-4 py-2 text-sm bg-transparent border border-white rounded-full hover:bg-white hover:text-black">Login</a>
+                <a href="{% url 'signup' %}" class="px-4 py-2 text-sm bg-white text-black rounded-full hover:bg-transparent hover:text-white">Sign Up</a>
+            </div>
+        </div>
+    </header>
+    <main class="container mx-auto mt-10 text-center">
+        <h1 class="text-6xl font-extrabold leading-tight mb-6">Achieve Your Health Goals</h1>
+        <p class="text-2xl text-gray-400 mb-10">Get started with personalized diet plans tailored just for you.</p>
+        <div class="mt-8">
+            <a href="#signup" class="px-10 py-4 bg-blue-600 text-white text-2xl rounded-full hover:bg-blue-700">Get Started</a>
+        </div>
+    </main>
+
+    <section class="bg-gray-900 py-16">
+        <div class="container mx-auto text-center">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="p-8 border border-gray-700 rounded-lg">
+                    <div class="text-4xl text-blue-400 mb-4">Personalized Plans</div>
+                    <p class="text-gray-400">Tailored diet plans to meet your unique goals and preferences.</p>
+                </div>
+                <div class="p-8 border border-gray-700 rounded-lg">
+                    <div class="text-4xl text-blue-400 mb-4">Expert Guidance</div>
+                    <p class="text-gray-400">Receive guidance from certified nutrition experts.</p>
+                </div>
+                <div class="p-8 border border-gray-700 rounded-lg">
+                    <div class="text-4xl text-blue-400 mb-4">Track Progress</div>
+                    <p class="text-gray-400">Easily track your progress and make adjustments as needed.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+{% endblock body %}
